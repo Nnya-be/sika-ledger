@@ -1,4 +1,4 @@
-package xellenet.sika_ledger;
+package xellenet.sikaledger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
