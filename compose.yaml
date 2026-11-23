@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    container_name: sika_ledger_app
+    env_file: .env
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      # Inside the container "localhost" is the container itself, so reach the
+      # existing Postgres by its container name on the shared network.
+      DB_URL: jdbc:postgresql://jinva_postgres:5432/${DB_NAME:-sika_ledger}
+    ports:
+      - "${PORT:-8080}:8080"
+    networks:
+      - jinva
+
+networks:
+  jinva:
+    external: true
+    name: jin_va-backend_default
